@@ -34,11 +34,8 @@ def main(latitude, longitude, altitude, date, min_angle):
             break
 
     if astronomical_night_start is None:
-        print("Could not calculate the start of the astronomical night.")
+        console.print("Could not calculate the start of the astronomical night.")
         return
-
-    print(f"Astronomical night time on {time.datetime.strftime('%d/%m/%Y')}:")
-    print(f"Start: {astronomical_night_start.datetime.strftime('%d/%m/%Y %H:%M:%S')}")
 
     messier_catalog = ongc.listObjects(catalog="M")
 
@@ -62,12 +59,16 @@ def main(latitude, longitude, altitude, date, min_angle):
             pa = 0
 
         other_identifiers_messier = messier_data["other identifiers"]["messier"]
+        common_name = messier._commonnames
+
+        if common_name:
+            common_name = messier._commonnames.split(",")[0]
 
         if altaz_coord.alt > min_angle*u.deg and time > astronomical_night_start:
             visible_objects.append((
                 other_identifiers_messier,
                 messier.name,
-                messier._commonnames,
+                common_name,
                 coord.ra.to_string(u.hour),
                 coord.dec.to_string(u.degree),
                 altaz_coord.az.to(u.degree).value,
@@ -95,9 +96,14 @@ def main(latitude, longitude, altitude, date, min_angle):
         # Format Azimuth and Altitude with 4 decimal places
         azimuth = f"{obj[5]:.4f}"
         altitude = f"{obj[6]:.4f}"
+        # Replace 0 with '-' for size_major, size_minor, and pa
+        size_major = '-' if obj[7] == 0 else obj[7]
+        size_minor = '-' if obj[8] == 0 else obj[8]
+        pa = '-' if obj[9] == 0 else obj[9]
         # Create a new list with the formatted values
-        formatted_obj = list(obj[:5]) + [azimuth, altitude] + list(obj[7:])
+        formatted_obj = list(obj[:5]) + [azimuth, altitude] + [size_major, size_minor, pa]
         table.add_row(*[str(x) for x in formatted_obj])
+
 
 
     console = Console()
