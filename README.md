@@ -24,7 +24,40 @@ Messierism is a Python script that calculates the visible Messier objects in the
 git clone https://github.com/your-username/messierism.git
 ```
 
-2. Install the required libraries:
+2. Navigate to the project directory:
+
+```bash
+cd messierism
+```
+
+3. Create a virtual environment:
+
+	- For Windows PowerShell:
+
+	```powershell
+    python -m venv venv
+	```
+
+	- For Linux:
+
+	```bash
+	python3 -m venv venv
+	```
+4. Activate the virtual environment:
+
+    - For Windows PowerShell:
+
+    ```powershell
+    .\venv\Scripts\Activate.ps1
+    ```
+
+	- For Linux:
+
+	```bash
+	source venv/bin/activate
+	```
+
+5. Install the required libraries:
 
 ```bash
 pip install -r requirements.txt
