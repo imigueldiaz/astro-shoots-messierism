@@ -31,7 +31,7 @@ pytz==2024.1
 pyvo==1.5.1
 pywin32-ctypes==0.2.2
 PyYAML==6.0.1
-requests==2.32.2
+requests==2.32.4
 rich==13.7.1
 six==1.16.0
 soupsieve==2.5
