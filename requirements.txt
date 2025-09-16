@@ -36,7 +36,7 @@ rich==13.7.1
 six==1.16.0
 soupsieve==2.5
 timezonefinder==6.5.0
-urllib3==2.2.2
+urllib3==2.5.0
 webencodings==0.5.1
 zipp==3.19.1
 zope.interface==6.3
