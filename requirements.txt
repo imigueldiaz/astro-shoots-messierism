@@ -25,7 +25,7 @@ numpy==1.26.4
 packaging==24.0
 pycparser==2.22
 pyerfa==2.0.1.4
-Pygments==2.17.2
+Pygments==2.20.0
 PyOngc==1.1.0
 pytz==2024.1
 pyvo==1.5.1
