@@ -38,7 +38,7 @@ six==1.16.0
 soupsieve==2.5
 timezonefinder==6.5.0
 tzdata==2026.2
-urllib3==2.6.3
+urllib3==2.7.0
 webencodings==0.5.1
 zipp==3.19.1
 zope.interface==6.3
